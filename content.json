@@ -282,6 +282,17 @@
       "tag": "Distinguished Lecture",
       "abstract": "Stabilizing global climate will likely require removing carbon dioxide from the atmosphere as well as cutting emissions. Ocean-based approaches show promise, but none is ready to deploy at scale: gaps remain in efficacy, permanence, verification, cost, and governance.",
       "image": "images/doney-seminar-flyer.jpg"
+    },
+    {
+      "date": "2026-09-10",
+      "time": "1:00 PM",
+      "location": "SEEC N224",
+      "speaker": "Jelle Schrijver",
+      "affiliation": "",
+      "title": "A Methane Plume Seen from Space: What Can We Actually Measure?",
+      "tag": "Special seminar",
+      "abstract": "Satellites can now resolve methane plumes from individual point sources at scales of tens of metres. Turning an observed plume into an emission rate is far harder: both the retrieval and the atmospheric transport carry uncertainty. This talk covers a physics-based optimal-estimation retrieval, how differences between instruments affect what counts as a detection, and work using large-eddy simulation against controlled-release experiments to pin down how wind and turbulence limit satellite-derived emission estimates.",
+      "image": "images/jelle-schrijver.jpg"
     }
   ],
   "announcements": [
