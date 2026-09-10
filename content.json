@@ -249,20 +249,6 @@
       "image": "images/vikas-nataraja.jpg"
     },
     {
-      "tag": "Student award",
-      "title": "Genevieve Clow wins the CESM Graduate Student Award",
-      "people": "Genevieve Clow · ATOC graduate student",
-      "blurb": "Presented at the CESM Workshop in Boulder in June 2026. The award recognizes outstanding graduate research in Earth system modeling.",
-      "image": "images/clow-cesm-award.jpg"
-    },
-    {
-      "tag": "New publication",
-      "title": "What actually drives melt on the Greenland ice sheet",
-      "people": "Ziqi Yin · ATOC graduate student",
-      "blurb": "Yin and co-authors used causal discovery to identify which surface energy balance terms drive surface melt on the Greenland ice sheet. Geophysical Research Letters, May 2026 — doi.org/10.1029/2025GL119928",
-      "image": "images/yin-greenland-causal-graph.png"
-    },
-    {
       "tag": "NSF CAREER Award",
       "title": "Andrew Winters receives an NSF CAREER Award",
       "people": "Andrew Winters · ATOC",
@@ -270,11 +256,25 @@
       "image": ""
     },
     {
+      "tag": "Student award",
+      "title": "Genevieve Clow wins the CESM Graduate Student Award",
+      "people": "Genevieve Clow · ATOC graduate student",
+      "blurb": "Presented at the CESM Workshop in Boulder in June 2026. The award recognizes outstanding graduate research in Earth system modeling.",
+      "image": "images/clow-cesm-award.jpg"
+    },
+    {
       "tag": "AMS honors",
       "title": "Three American Meteorological Society honors",
       "people": "CUBAMS · Peter Blanken · Matthew Shupe",
       "blurb": "CUBAMS, the CU Boulder AMS student chapter, won Local Student Chapter of the Year. Peter Blanken (Geography, who teaches an ATOC course) and Matthew Shupe (CIRES) were both elected AMS Fellows.",
       "image": ""
+    },
+    {
+      "tag": "New publication",
+      "title": "What actually drives melt on the Greenland ice sheet",
+      "people": "Ziqi Yin · ATOC graduate student",
+      "blurb": "Yin and co-authors used causal discovery to identify which surface energy balance terms drive surface melt on the Greenland ice sheet. Geophysical Research Letters, May 2026 — doi.org/10.1029/2025GL119928",
+      "image": "images/yin-greenland-causal-graph.png"
     }
   ],
   "colloquia": [
