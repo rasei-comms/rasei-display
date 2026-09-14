@@ -32,7 +32,7 @@
       "src": "https://cdn.star.nesdis.noaa.gov/GOES19/ABI/SECTOR/nr/GEOCOLOR/GOES19-NR-GEOCOLOR-600x600.gif",
       "refreshMinutes": 15,
       "credit": "NOAA/NESDIS STAR · GOES-19 ABI GeoColor",
-      "enabled": true
+      "enabled": false
     },
     {
       "id": "radar-colorado",
@@ -216,7 +216,7 @@
       "src": "https://gml.noaa.gov/webdata/ccgg/trends/co2_trend_mlo.png",
       "refreshMinutes": 720,
       "credit": "NOAA Global Monitoring Laboratory, Boulder CO",
-      "enabled": true
+      "enabled": false
     },
     {
       "id": "cpc-precip",
@@ -335,6 +335,12 @@
     {
       "title": "Find us",
       "body": "Main office: SEEC building, CU Boulder East Campus. Department website: atoc.colorado.edu"
+    },
+    {
+      "title": "ATOC Mario Kart Tournament — Friday, September 25",
+      "body": "3:45–6:00 PM in SEEC N224, hosted by the ATOC Social Committee. Prizes, pizza, and popcorn — scan the QR code on the flyer to RSVP.",
+      "image": "images/mario-kart-tournament.jpg",
+      "until": "2026-09-25"
     },
     {
       "title": "Welcome Back",

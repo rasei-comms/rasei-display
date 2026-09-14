@@ -210,7 +210,6 @@ NOAA, NASA, NCAR and NWS imagery all do.
 
 | Slide | Source |
 |---|---|
-| GOES-19 GeoColor — Colorado & the Northern Rockies | NOAA/NESDIS STAR |
 | Current Conditions — Boulder | api.weather.gov |
 | Skywatch Weather Station | willychap.github.io/weather |
 | ATOC Highlights | `content.json` |
@@ -223,20 +222,21 @@ NOAA, NASA, NCAR and NWS imagery all do.
 | Mesoscale Rapid Scan — One-Minute Imagery | UW–Madison AOS |
 | 8–14 Day Temperature Outlook | NOAA CPC |
 | ENSO Model Skill — 22 Seasons of Forecasts | IRI, Columbia University |
-| Atmospheric CO2 at Mauna Loa | NOAA GML (Boulder) |
 | 8–14 Day Precipitation Outlook | NOAA CPC |
 
-15 slides at 25 seconds is a **6-minute cycle**. No slide sets its own
+13 slides at 25 seconds is a **5.4-minute cycle**. No slide sets its own
 `duration`, so `defaultDuration` under `site` changes the pace of the whole thing.
 
 Currently parked (set `"enabled": true` to bring one back):
 
+- **GOES-19 GeoColor — Colorado & the Northern Rockies** — the 600 px GeoColor GIF loop (~12 MB); the UW Colorado visible loop covers the same area at higher resolution
 - **Colorado Radar — Denver/Boulder (KFTG)** — the NWS single-site radar; the UW composite covers the same ground
 - **Colorado Visible Satellite — High Resolution** — a single still frame instead of the animated loop; lighter on an old laptop
 - **Day Cloud Phase Distinction RGB** — ice cloud, water cloud and bare ground separated by color
 - **Air Mass RGB — Southwest** — dry stratospheric intrusions, jet streaks and frontal boundaries
 - **GOES-19 GeoColor — Continental U.S.** — the full-CONUS GeoColor still
 - **ENSO Predictions Plume** — the model plume; the 22-season hindcast covers ENSO instead
+- **Atmospheric CO2 at Mauna Loa** — monthly Mauna Loa CO₂ record
 - **Campus Weather Dashboard** — the full Quarto dashboard from the station, embedded live (~8 MB)
 
 If a severe weather watch or warning is issued for Boulder, a red banner appears

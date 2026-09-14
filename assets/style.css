@@ -202,10 +202,12 @@ img{display:block}
 .list .card{display:flex; flex-direction:column; justify-content:center; gap:.25em; min-height:0}
 .list h3{margin:0; font-size:calc(var(--body)*1.15); color:var(--gold)}
 /* A notice with a photo runs the full width, image beside the words. */
-.card.feat{grid-column:1 / -1; flex-direction:row; align-items:stretch; gap:calc(var(--pad)*0.9)}
+/* justify-content resets .list .card's centering: in a row that centered the whole
+   picture-and-text group, so a short notice drifted away from the left edge. */
+.card.feat{grid-column:1 / -1; flex-direction:row; align-items:stretch; justify-content:flex-start; gap:calc(var(--pad)*0.9)}
 /* contain, not cover: a scientific figure must never be cropped. */
 .card.feat img{height:100%; width:auto; max-width:46%; object-fit:contain; border-radius:8px; flex:0 0 auto}
-.feat-text{display:flex; flex-direction:column; justify-content:center; gap:.35em; min-width:0}
+.feat-text{display:flex; flex-direction:column; justify-content:center; gap:.35em; min-width:0; flex:1 1 auto}
 .feat-text h3{font-size:calc(var(--body)*1.45); line-height:1.15}
 .feat-text p{font-size:calc(var(--body)*1.02); line-height:1.4}
 .list p{margin:0; font-size:var(--body); color:#dfe4ea; line-height:1.4}
