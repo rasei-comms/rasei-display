@@ -300,6 +300,17 @@
       "tag": "Special seminar",
       "abstract": "Satellites can now resolve methane plumes from individual point sources at scales of tens of metres. Turning an observed plume into an emission rate is far harder: both the retrieval and the atmospheric transport carry uncertainty. This talk covers a physics-based optimal-estimation retrieval, how differences between instruments affect what counts as a detection, and work using large-eddy simulation against controlled-release experiments to pin down how wind and turbulence limit satellite-derived emission estimates.",
       "image": "images/jelle-schrijver.jpg"
+    },
+    {
+      "date": "2026-09-18",
+      "time": "11:00 AM",
+      "location": "SEEC S228 · also on Zoom",
+      "speaker": "Dr. Lynn Harvey (LASP) and Dr. Laura Holt (NWRA)",
+      "affiliation": "",
+      "title": "Cora Randall: A career of scientific vision, community, and deep humanity",
+      "tag": "In honor of Prof. Cora Randall",
+      "abstract": "Cora Randall’s research on the energetic particle precipitation indirect effect showed how nitrogen oxides made high in the atmosphere descend through the winter polar vortex to alter stratospheric ozone. She led the AIM/CIPS investigation of polar mesospheric clouds and the WAVE DRIVE Science Center. This colloquium celebrates both the science and the person — teacher, mentor, department chair, and extraordinarily generous colleague.",
+      "image": "images/randall-colloquium-flyer.jpg"
     }
   ],
   "announcements": [
