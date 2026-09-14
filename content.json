@@ -246,7 +246,8 @@
       "title": "ATOC’s Greenland campaign features in the PBS series “Ages of Ice”",
       "people": "Vikas Nataraja and Sebastian Schmidt · ATOC / LASP",
       "blurb": "ARCSIX, the NASA airborne campaign over Greenland led by Sebastian Schmidt, appears in episode two of Ages of Ice, with graduate student Vikas Nataraja on camera. “Polar Seas” airs Wednesday, September 23 at 10 p.m. ET on PBS, the PBS app, and PBS’s YouTube channel, and screens at Climate Week in New York on September 19. #AgesofIce",
-      "image": "images/vikas-nataraja.jpg"
+      "image": "images/vikas-nataraja.jpg",
+      "until": "2026-09-23"
     },
     {
       "tag": "NSF CAREER Award",
@@ -280,15 +281,8 @@
       "tag": "ATOC Social Committee Events",
       "title": "Thank you for joining us for the ATOC Annual BBQ!",
       "people": "ATOC",
-      "blurb": "Trading red pens for grill tongs, our department cameg together to flip burgers, swap stories, and build the ultimate support network outside the classroom.",
+      "blurb": "Trading red pens for grill tongs, our department came together to flip burgers, swap stories, and build the ultimate support network outside the classroom.",
       "image": "images/ATOC_BBQ_2026_GroupPhoto.jpg"
-    },
-    {
-      "tag": "ATOC Merch",
-      "title": "Order an ATOC T-Shirt by September 18!",
-      "people": "ATOC",
-      "blurb": "",
-      "image": "images/ATOC_Tshirt_GroupOrder_2026.png"
     }
   ],
   "colloquia": [
@@ -328,6 +322,12 @@
     }
   ],
   "announcements": [
+    {
+      "title": "Order an ATOC T-Shirt by September 18!",
+      "body": "$22. The group order closes Friday, September 18 — scan the QR code on the flyer to order.",
+      "image": "images/ATOC_Tshirt_GroupOrder_2026.jpg",
+      "until": "2026-09-18"
+    },
     {
       "title": "Welcome to ATOC",
       "body": "The Department of Atmospheric and Oceanic Sciences."

@@ -522,7 +522,7 @@ async function renderImage(slide) {
 }
 
 async function renderResearch(slide) {
-  const item = nextItem('research', state.content?.research);
+  const item = nextItem('research', current(state.content?.research));
   if (!item) return frame(slide, el('div', 'empty', 'No research highlights yet.'), slide.credit);
 
   const split = el('div', 'split' + (item.image ? '' : ' no-media'));
@@ -547,6 +547,19 @@ function parseDay(d) {
   const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(clean(d).trim());
   if (!m) return null;
   return new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3]), 12, 0, 0);
+}
+
+/* Highlights and notices may carry "until": "YYYY-MM-DD". They show through
+   the end of that day and then retire themselves, the way past colloquia do.
+   A malformed date keeps the item visible: a typo should be seen, not vanish. */
+function current(list) {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  return (list || []).filter((it) => {
+    if (!it || !it.until) return true;
+    const d = parseDay(it.until);
+    return !d || d >= today;
+  });
 }
 
 function upcoming(list) {
@@ -616,7 +629,7 @@ async function renderColloquium(slide) {
 }
 
 function renderList(slide) {
-  const raw = (slide.source === 'announcements' ? state.content?.announcements : slide.items) || [];
+  const raw = current(slide.source === 'announcements' ? state.content?.announcements : slide.items);
   // Blank-but-present entries (a lone space, say) should not render an empty card.
   const items = raw.filter((it) => clean(it.title).trim() || clean(it.body).trim() || it.image);
   if (!items.length) {

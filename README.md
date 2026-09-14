@@ -132,6 +132,12 @@ a figure from a paper stays readable.
 github.com), then reference it by name. Resize big phone photos to about 1600 px on
 the long edge first — a 3 MB photo makes the page slow for no visible gain.
 
+**Anything with a deadline can retire itself.** Add `"until": "2026-09-18"` to a
+highlight or a notice and it shows through the end of that day, then drops out on its
+own — the same way a colloquium disappears after its date. Use it for sales,
+broadcasts, and application deadlines, so nobody has to remember to take them down.
+A mistyped date keeps the item on screen rather than silently hiding it.
+
 ### Colloquium schedule
 
 Paste in the whole semester at once. Entries whose date has passed disappear on
