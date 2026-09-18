@@ -44,12 +44,20 @@ then open <http://localhost:8000>. Press `Ctrl+C` when you are done.
 ## 2. Set the laptop up as a kiosk
 
 Any laptop from the cart is plenty — the page is a few hundred KB of code. The
-heaviest thing it loads is an animated satellite loop (~12 MB every 15 minutes),
-so wired Ethernet or decent wifi is nice but not required.
+heaviest things it loads are the embedded UW animation loops, which fetch a few dozen
+frames each time they come around, so decent wifi helps but wired Ethernet is not
+required.
 
 **Before anything else:** log in as a local account that starts without a password
 prompt, plug in power, and connect the monitor. Set the monitor as the primary
 display so the browser opens on it.
+
+**How updates reach the screen.** `content.json` is re-read every ten minutes, so
+edits to highlights, notices and colloquia appear on their own. Changes to the page
+itself — `index.html`, `assets/app.js`, `assets/style.css` — are caught by a version
+check every five minutes, and the screen then reloads at the next slide change rather
+than interrupting one mid-view. `"updateCheckMinutes"` under `site` changes how often
+it looks; a failed check never triggers a reload.
 
 ### macOS
 
@@ -355,8 +363,10 @@ Or just open the URL that `git push` prints in its output — it links straight 
 ### After it is merged
 
 GitHub Pages rebuilds within a minute or two. The lobby laptop re-reads `content.json`
-every ten minutes and reloads itself entirely at 3 AM, so nobody has to walk over to
-the mailbox and touch it.
+every ten minutes, and watches its own files for a new version — publish a change to
+the page itself and the screen reloads at the next slide change, usually within about
+five minutes. Nobody has to walk over to the mailbox and touch it. It also reloads
+outright at 3 AM, which clears anything the browser has leaked over a day on screen.
 
 ### Keeping your fork current for next time
 
