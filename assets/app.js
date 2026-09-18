@@ -22,6 +22,8 @@ const state = {
   wx: { obs: null, forecast: null, fetchedAt: 0 },
   station: { rows: null, fetchedAt: 0 },
   startedAt: Date.now(),
+  codeVersion: null,     // fingerprint of the page's own files, for auto-refresh
+  reloadWhenIdle: false,
 };
 
 /* ------------------------------------------------------------------ utils */
@@ -729,6 +731,7 @@ function pauseProgress(on) {
 
 async function show(i) {
   if (!state.slides.length) return;
+  if (state.reloadWhenIdle) { location.reload(); return; }
   state.index = ((i % state.slides.length) + state.slides.length) % state.slides.length;
   const slide = state.slides[state.index];
   const render = RENDERERS[slide.type] || renderList;
@@ -805,6 +808,36 @@ document.addEventListener('keydown', (e) => {
 // Click anywhere to jump forward — handy when someone taps the screen.
 document.addEventListener('click', () => advance(1));
 
+/* ------------------------------------------------------------- auto refresh */
+
+/* content.json is re-read on its own, but a change to the page's own code only
+   arrives with a reload. Fingerprint those files and reload when they change, so
+   a push reaches the kiosk without anyone walking over to it. The reload waits
+   for the next slide change rather than cutting one off mid-view. */
+const CODE_FILES = ['', 'assets/app.js', 'assets/style.css'];
+
+async function codeVersion() {
+  const parts = await Promise.all(CODE_FILES.map(async (f) => {
+    try {
+      const res = await fetch(f + '?v=' + Date.now(), { method: 'HEAD', cache: 'no-store' });
+      return res.headers.get('etag') || res.headers.get('last-modified') || '';
+    } catch (err) {
+      return null;                    // a failed check must never trigger a reload
+    }
+  }));
+  return parts.some((p) => p === null) ? null : parts.join('|');
+}
+
+async function checkForUpdate() {
+  const now = await codeVersion();
+  if (!now) return;
+  if (!state.codeVersion) { state.codeVersion = now; return; }
+  if (now !== state.codeVersion) {
+    console.info('new version published — reloading at the next slide');
+    state.reloadWhenIdle = true;
+  }
+}
+
 /* ------------------------------------------------------------------- boot */
 
 async function boot() {
@@ -845,7 +878,12 @@ async function boot() {
       .catch((e) => console.warn('content refresh', e));
   }, 10 * 60000);
 
-  // Nightly reload: clears any leak and picks up new code.
+  // Watch for a newly published version, and reload nightly regardless: that
+  // also clears anything the browser has leaked over a day on screen.
+  const every = (state.content?.site?.updateCheckMinutes || 5) * 60000;
+  checkForUpdate();
+  setInterval(checkForUpdate, every);
+
   setInterval(() => {
     const h = new Date().getHours();
     if (h === 3 && Date.now() - state.startedAt > 6 * 3600000) location.reload();
