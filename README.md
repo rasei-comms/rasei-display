@@ -411,8 +411,10 @@ seconds a slide. They apply to that page load only and change nothing in `conten
 
 ## 7. If something looks wrong
 
-**One slide says "Imagery temporarily unavailable."** The upstream NOAA server is
-having a moment. It fixes itself; the slideshow keeps going regardless.
+**One slide says "Imagery temporarily unavailable."** The upstream server is having a
+moment. It fixes itself; the slideshow keeps going regardless. A source that stalls
+without ever answering is given eight seconds before the slide gives up, so a dead
+host costs a short pause, not a frozen board.
 
 **Conditions say "unavailable".** `api.weather.gov` occasionally rate-limits or the
 Boulder station drops out. It recovers on the next ten-minute refresh.

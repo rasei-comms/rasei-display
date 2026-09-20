@@ -62,15 +62,36 @@ function datedSources(src) {
   return [fill(now), fill(prev)];
 }
 
-function loadImage(src) {
+/* A host that accepts the connection and then never answers leaves onload and
+   onerror both unfired, so without a timeout this promise never settles — and
+   because show() awaits the next slide before swapping it in, the slide already
+   on screen would stay there indefinitely. Always bound the wait. */
+function loadImage(src, timeoutMs) {
   return new Promise((resolve, reject) => {
     const img = new Image();
+    let timer = null;
+    const done = (fn, arg) => { clearTimeout(timer); fn(arg); };
     img.decoding = 'async';
     img.alt = '';
-    img.onload = () => resolve(img);
-    img.onerror = () => reject(new Error('image failed: ' + src));
+    img.onload = () => done(resolve, img);
+    img.onerror = () => done(reject, new Error('image failed: ' + src));
+    timer = setTimeout(() => {
+      img.src = '';                   // cancel the in-flight request
+      reject(new Error('image timed out: ' + src));
+    }, timeoutMs || IMAGE_TIMEOUT_MS);
     img.src = src;
   });
+}
+
+const IMAGE_TIMEOUT_MS = 8000;
+const RENDER_TIMEOUT_MS = 20000;
+
+/* Last line of defence: no renderer may wedge the rotation, whatever it awaits. */
+function withTimeout(promise, ms, label) {
+  return Promise.race([
+    promise,
+    new Promise((_, reject) => setTimeout(() => reject(new Error('render timed out: ' + label)), ms)),
+  ]);
 }
 
 async function getJSON(url, timeoutMs = 12000) {
@@ -738,7 +759,7 @@ async function show(i) {
 
   let node;
   try {
-    node = await render(slide);
+    node = await withTimeout(render(slide), RENDER_TIMEOUT_MS, slide.id || slide.type);
   } catch (err) {
     console.error('render failed', slide, err);
     node = frame(slide, el('div', 'empty', 'Content temporarily unavailable.'), '');

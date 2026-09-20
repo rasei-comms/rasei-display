@@ -199,14 +199,14 @@
     },
     {
       "id": "iri-enso-history",
-      "_readme": "IRI figure 7. The last path component is the number of past seasons drawn (22), not a date — lower it for a cleaner plot, raise it for more history.",
+      "_readme": "IRI figure 7. Parked because ensoforecast2.iri.columbia.edu stopped responding in September 2026 — the host accepts connections and never answers. Check it is back before re-enabling. The last path component is a count of past seasons, not a date.",
       "type": "image",
       "title": "ENSO Model Skill — 22 Seasons of Forecasts",
       "subtitle": "Every model’s past Niño 3.4 forecast against observations (black)",
       "src": "https://ensoforecast2.iri.columbia.edu/figure7_plot/{YYYY}/{M0}/22",
       "refreshMinutes": 720,
       "credit": "International Research Institute for Climate and Society, Columbia University",
-      "enabled": true
+      "enabled": false
     },
     {
       "id": "keeling",
