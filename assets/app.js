@@ -45,27 +45,56 @@ function versioned(src, refreshMinutes) {
   return src + (src.includes('?') ? '&' : '?') + 'v=' + bucket;
 }
 
-/* Some publishers file their figures under a dated path that rolls over every
-   month (IRI's ENSO forecast, for one). A src may therefore carry placeholders:
-     {YYYY} 2026   {MM} 08   {M} 8   {M0} 7 (zero-indexed, as IRI numbers months)
-   Returns this month's URL first and last month's as a fallback, because early
-   in a month the new figure is not published yet. */
-function datedSources(src) {
-  if (!/\{(YYYY|MM|M|M0)\}/.test(src)) return [src];
-  const fill = (d) => src
+/* Some publishers file their figures under a dated path that rolls over, so a src
+   may carry placeholders:
+     {YYYY} 2026   {MM} 09   {M} 9   {M0} 8 (zero-indexed, as IRI numbers months)
+     {RUN}   the latest six-hourly model cycle in UTC, as YYYYMMDDHH
+     {FRAME} a forecast hour from the slide's "frames" list, zero-padded to three
+   Returns an ordered list of candidates to try: the current month then the previous
+   one, the current cycle then the one before it, and each frame in turn. CU-WRF
+   keeps figures only for the run in progress and writes them as the model runs, so
+   the newest cycle may not have reached a given hour yet — hence the fallbacks. */
+function datedSources(src, frames) {
+  if (!/\{(YYYY|MM|M|M0|RUN|FRAME)\}/.test(src)) return [src];
+
+  const byMonth = (d) => (u) => u
     .replace(/\{YYYY\}/g, String(d.getFullYear()))
     .replace(/\{MM\}/g, String(d.getMonth() + 1).padStart(2, '0'))
     .replace(/\{M0\}/g, String(d.getMonth()))
     .replace(/\{M\}/g, String(d.getMonth() + 1));
+
   const now = new Date();
-  const prev = new Date(now.getFullYear(), now.getMonth() - 1, 1);
-  return [fill(now), fill(prev)];
+  const months = [now, new Date(now.getFullYear(), now.getMonth() - 1, 1)];
+
+  // Model cycles run on six-hourly UTC boundaries.
+  const cycle = new Date(now);
+  cycle.setUTCMinutes(0, 0, 0);
+  cycle.setUTCHours(Math.floor(cycle.getUTCHours() / 6) * 6);
+  const runs = [0, 6].map((back) => {
+    const d = new Date(cycle.getTime() - back * 3600000);
+    return d.getUTCFullYear()
+      + String(d.getUTCMonth() + 1).padStart(2, '0')
+      + String(d.getUTCDate()).padStart(2, '0')
+      + String(d.getUTCHours()).padStart(2, '0');
+  });
+
+  const frameList = (Array.isArray(frames) && frames.length ? frames : [0])
+    .map((f) => String(f).padStart(3, '0'));
+
+  const out = [];
+  const hasRun = src.includes('{RUN}');
+  for (const run of (hasRun ? runs : [null])) {
+    for (const frame of (src.includes('{FRAME}') ? frameList : [null])) {
+      let u = src;
+      if (run !== null) u = u.replace(/\{RUN\}/g, run);
+      if (frame !== null) u = u.replace(/\{FRAME\}/g, frame);
+      out.push(byMonth(months[0])(u));
+      if (!hasRun) out.push(byMonth(months[1])(u));   // month fallback only
+    }
+  }
+  return out.slice(0, 4);              // stay inside the render guard
 }
 
-/* A host that accepts the connection and then never answers leaves onload and
-   onerror both unfired, so without a timeout this promise never settles — and
-   because show() awaits the next slide before swapping it in, the slide already
-   on screen would stay there indefinitely. Always bound the wait. */
 function loadImage(src, timeoutMs) {
   return new Promise((resolve, reject) => {
     const img = new Image();
@@ -520,7 +549,7 @@ function frame(slide, bodyNode, captionText) {
 async function renderImage(slide) {
   const wrap = el('div', 'img-wrap' + (slide.fit === 'cover' ? ' cover' : ''));
   let loaded = null;
-  for (const candidate of datedSources(slide.src)) {
+  for (const candidate of datedSources(slide.src, slide.frames)) {
     const src = versioned(candidate, slide.refreshMinutes);
     try {
       loaded = { img: await loadImage(src), src };

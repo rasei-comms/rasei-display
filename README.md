@@ -200,7 +200,7 @@ The `"slides"` array is the running order. Every slide takes:
 | `type` | What it does |
 |---|---|
 | `image` | Shows a live image URL. Add `src`, and `refreshMinutes` for how often to re-download it. |
-| | `src` may contain `{YYYY}` `{MM}` `{M}` `{M0}`, filled in at display time for publishers who file figures under a dated path. If this month's is not up yet, last month's is used. |
+| | `src` may contain `{YYYY}` `{MM}` `{M}` `{M0}` for publishers who file figures under a dated path, and `{RUN}` `{FRAME}` for model output — `{RUN}` is the latest six-hourly UTC cycle, `{FRAME}` a forecast hour from the slide's `frames` list. Candidates are tried in order, so the display falls back to the previous month, the previous run, or a shorter lead time when the newest figure is not out yet. |
 | `weather` | Current conditions and forecast from the National Weather Service. |
 | `station` | Our own campus weather station: latest readings plus a 24-hour temperature trace. |
 | `research` | Next entry from the `research` list. |
@@ -219,20 +219,21 @@ NOAA, NASA, NCAR and NWS imagery all do.
 | Slide | Source |
 |---|---|
 | Current Conditions — Boulder | api.weather.gov |
+| CU-WRF Forecast — 250-hPa Jet Stream | CU-WRF · McKenzie Larson |
 | Skywatch Weather Station | willychap.github.io/weather |
 | ATOC Highlights | `content.json` |
 | Colorado Visible Satellite — Animated | UW–Madison AOS |
 | ATOC Colloquium | `content.json` |
 | Colorado Reflectivity Composite — Animated | UW–Madison AOS |
 | Department Notices | `content.json` |
+| CU-WRF Forecast — 500-hPa Vorticity | CU-WRF · McKenzie Larson |
 | GOES-19 Full Disk | NOAA/NESDIS STAR |
 | Severe Weather Outlook — Today | NOAA/NWS SPC |
 | Mesoscale Rapid Scan — One-Minute Imagery | UW–Madison AOS |
 | 8–14 Day Temperature Outlook | NOAA CPC |
-| ENSO Model Skill — 22 Seasons of Forecasts | IRI, Columbia University |
 | 8–14 Day Precipitation Outlook | NOAA CPC |
 
-13 slides at 25 seconds is a **5.4-minute cycle**. No slide sets its own
+14 slides at 25 seconds is a **6-minute cycle**. No slide sets its own
 `duration`, so `defaultDuration` under `site` changes the pace of the whole thing.
 
 Currently parked (set `"enabled": true` to bring one back):
@@ -243,7 +244,8 @@ Currently parked (set `"enabled": true` to bring one back):
 - **Day Cloud Phase Distinction RGB** — ice cloud, water cloud and bare ground separated by color
 - **Air Mass RGB — Southwest** — dry stratospheric intrusions, jet streaks and frontal boundaries
 - **GOES-19 GeoColor — Continental U.S.** — the full-CONUS GeoColor still
-- **ENSO Predictions Plume** — the model plume; the 22-season hindcast covers ENSO instead
+- **ENSO Predictions Plume** — the ENSO model plume — parked while ensoforecast2.iri.columbia.edu is unresponsive
+- **ENSO Model Skill — 22 Seasons of Forecasts** — the 22-season ENSO hindcast — parked with the same host outage
 - **Atmospheric CO2 at Mauna Loa** — monthly Mauna Loa CO₂ record
 - **Campus Weather Dashboard** — the full Quarto dashboard from the station, embedded live (~8 MB)
 

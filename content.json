@@ -52,6 +52,21 @@
       "enabled": true
     },
     {
+      "id": "cuwrf-upper",
+      "_readme": "CU-WRF keeps figures only for the run in progress and writes them as the model runs, so {RUN}/{FRAME} tries the current six-hourly cycle then the previous one, and the 12-hour forecast then the analysis. Raise \"frames\" for a longer lead time. The host is on the CU network: off campus this slide shows its placeholder.",
+      "type": "image",
+      "title": "CU-WRF Forecast — 250-hPa Jet Stream",
+      "subtitle": "Our own 9-km WRF, run in the department and updated every six hours",
+      "src": "https://atoc03.colorado.edu/~mcla2793/CU-WRF_FIGS/{RUN}/f{FRAME}_upper-level.png",
+      "frames": [
+        12,
+        0
+      ],
+      "refreshMinutes": 60,
+      "credit": "CU-WRF · 9-km GFS-initialized WRF · figures by McKenzie Larson (ATOC)",
+      "enabled": true
+    },
+    {
       "id": "campus-station",
       "type": "station",
       "title": "Skywatch Weather Station",
@@ -112,6 +127,21 @@
       "source": "announcements",
       "title": "Department Notices",
       "subtitle": "What's happening in ATOC",
+      "enabled": true
+    },
+    {
+      "id": "cuwrf-mid",
+      "_readme": "CU-WRF keeps figures only for the run in progress and writes them as the model runs, so {RUN}/{FRAME} tries the current six-hourly cycle then the previous one, and the 12-hour forecast then the analysis. Raise \"frames\" for a longer lead time. The host is on the CU network: off campus this slide shows its placeholder.",
+      "type": "image",
+      "title": "CU-WRF Forecast — 500-hPa Vorticity",
+      "subtitle": "Shortwave troughs, ascent and mid-level temperature from the CU-WRF run",
+      "src": "https://atoc03.colorado.edu/~mcla2793/CU-WRF_FIGS/{RUN}/f{FRAME}_mid-level.png",
+      "frames": [
+        12,
+        0
+      ],
+      "refreshMinutes": 60,
+      "credit": "CU-WRF · 9-km GFS-initialized WRF · figures by McKenzie Larson (ATOC)",
       "enabled": true
     },
     {
