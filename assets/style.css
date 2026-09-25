@@ -1,14 +1,18 @@
-/* ATOC lobby display — designed for a 1080p/4K landscape screen at ~10 ft viewing distance. */
+/* RASEI entryway display — designed for a 1080p/4K landscape screen at ~10 ft viewing distance. */
 
 :root{
   --gold:#CFB87C;          /* CU Boulder gold */
   --gold-dim:#8d7c50;
   --ink:#0b0d10;           /* page black */
-  --panel:#14181d;
-  --panel-2:#1b2027;
+  --green:#3C9243;          /* RASEI Green */
+  --blue:#0079C2;
+  --panel:#0A510F;
+  --panel-2:#16556F;
+  --panel-3:#ffffff;
+  --panel-4:#db9728;
   --line:#2b323b;
   --text:#f2f4f7;
-  --muted:#9aa4b1;
+  --muted:#f1f1f1;
   --warn:#e8b53a;
   --alert:#d9483b;
 
@@ -22,7 +26,7 @@
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
-  margin:0; background:var(--ink); color:var(--text);
+  margin:0; background:var(--green); color:var(--text);
   font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   overflow:hidden; cursor:none;
   -webkit-font-smoothing:antialiased;
@@ -43,24 +47,24 @@ img{display:block}
 /* ---------- top bar ---------- */
 #topbar{
   display:flex; align-items:center; justify-content:space-between; gap:var(--pad);
-  padding:calc(var(--pad)*0.38) var(--pad);
-  border-bottom:1px solid var(--line);
-  background:linear-gradient(180deg,#000 0%, #0e1114 100%);
+  padding:calc(var(--pad)*0.5) var(--pad);
+  border-bottom:3px solid #0079C2;
+  background:linear-gradient(180deg,#ffffff 0%, #d4ead5 100%);
+  color:var(--ink);
 }
 .brand{display:flex; align-items:center; gap:clamp(10px,1vw,20px); min-width:0}
-.brand-mark{
-  font-weight:800; letter-spacing:.06em;
-  font-size:clamp(17px,1.5vw,31px); color:var(--ink);
-  background:var(--gold); padding:.13em .4em; border-radius:.18em;
+.brand-logo{
+  height:clamp(36px,2.8vw,58px); width:auto;
+  flex:0 0 auto;
 }
 .brand-name{
   display:flex; flex-direction:column; line-height:1.15;
   font-size:clamp(13px,1.1vw,23px); font-weight:600; letter-spacing:.01em;
 }
-.brand-sub{font-size:.62em; font-weight:400; color:var(--muted); letter-spacing:.06em; text-transform:uppercase}
+.brand-sub{font-size:.62em; font-weight:400; color:#4f5b66; letter-spacing:.06em; text-transform:uppercase}
 .clock{text-align:right; line-height:1.05}
 #clock-time{font-size:clamp(19px,1.75vw,36px); font-weight:600; font-variant-numeric:tabular-nums}
-#clock-date{font-size:clamp(11px,0.8vw,17px); color:var(--muted); letter-spacing:.05em; text-transform:uppercase}
+#clock-date{font-size:clamp(11px,0.8vw,17px); color:#4f5b66; letter-spacing:.05em; text-transform:uppercase}
 
 /* ---------- weather alert banner ---------- */
 #alertbar{
@@ -92,7 +96,7 @@ img{display:block}
 }
 .slide-title::before{
   content:""; width:.35em; height:.35em; background:var(--gold);
-  border-radius:2px; transform:translateY(-.08em);
+  border-radius:6px; transform:translateY(-.08em);
 }
 .slide-sub{color:var(--muted); font-size:var(--small); letter-spacing:.05em; text-transform:uppercase; margin-top:.2em}
 .slide-body{flex:1 1 auto; min-height:0; display:flex}
@@ -126,35 +130,17 @@ img{display:block}
 
 .wx-fc{display:flex; flex-direction:column; gap:calc(var(--pad)*0.45); min-height:0; overflow:hidden}
 .fc-row{
-  background:var(--panel); border:1px solid var(--line); border-left:4px solid var(--gold-dim);
+  background:var(--panel); border:1px solid var(--line); border-left:6px solid var(--blue);
   border-radius:10px; padding:calc(var(--pad)*0.55) calc(var(--pad)*0.7);
   display:grid; grid-template-columns:minmax(0,1fr) auto; gap:.3em 1em; align-items:center; flex:1 1 0; min-height:0;
 }
-.fc-row.now{border-left-color:var(--gold); background:var(--panel-2)}
+.fc-row.now{border-left-color:var(--panel-4); background:var(--panel-2)}
 .fc-name{font-size:var(--body); font-weight:600; color:var(--gold)}
 .fc-temp{font-size:calc(var(--body)*1.5); font-weight:600; font-variant-numeric:tabular-nums; grid-row:span 2}
 .fc-text{font-size:calc(var(--body)*0.86); color:var(--muted); line-height:1.35;
   display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden}
 
-/* ---------- campus weather station ---------- */
-.stn{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.15fr); gap:var(--pad); width:100%; min-height:0}
-.stn-chart{display:flex; flex-direction:column; gap:.5em; min-height:0}
-.stn-chart-head{display:flex; align-items:baseline; justify-content:space-between; gap:1em}
-.stn-chart-head h3{margin:0; font-size:var(--body); font-weight:600; color:var(--muted);
-  letter-spacing:.06em; text-transform:uppercase}
-.stn-range{font-size:calc(var(--body)*1.1); font-weight:600; color:var(--gold); font-variant-numeric:tabular-nums}
-.spark-wrap{flex:1 1 auto; min-height:0; display:flex; gap:.6em}
-.spark-axis{position:relative; flex:0 0 auto; width:3.1em;
-  font-size:var(--small); color:var(--muted); font-variant-numeric:tabular-nums}
-.spark-axis span{position:absolute; right:0; transform:translateY(-50%); white-space:nowrap}
-.spark-plot{position:relative; flex:1 1 auto; min-width:0}
-.spark-grid{position:absolute; left:0; right:0; height:0; border-top:1px solid var(--line)}
-.spark{width:100%; height:100%; display:block; position:relative; z-index:1}
-.spark-now{position:absolute; width:14px; height:14px; margin:-7px 0 0 -7px; border-radius:50%;
-  background:var(--gold); box-shadow:0 0 0 3px var(--ink)}
-.spark-line{fill:none; stroke:var(--gold); stroke-width:3px; stroke-linejoin:round; stroke-linecap:round}
-.spark-area{fill:var(--gold); opacity:.13; stroke:none}
-.stn-foot{display:flex; justify-content:space-between; gap:1em; font-size:var(--small); color:var(--muted)}
+
 
 /* ---------- embedded page ---------- */
 .iframe-wrap{flex:1 1 auto; min-height:0; width:100%; position:relative; overflow:hidden;
@@ -172,24 +158,28 @@ img{display:block}
 .split.no-media .prose{max-width:78ch}
 .split.no-media .lede{max-width:26ch}
 .card.main{display:flex; flex-direction:column; justify-content:center}
-.media{border-radius:12px; overflow:hidden; background:var(--panel); border:1px solid var(--line); display:flex}
-.media img{width:100%; height:100%; object-fit:contain; padding:calc(var(--pad)*0.4)}
+.media{border-radius:12px; overflow:hidden; background:#ffffff; border:1px solid var(--line); display:flex}
+.media img{width:100%; height:100%; object-fit:contain; padding:6px}
 
 .lede{font-size:var(--h1); font-weight:800; line-height:1.08; letter-spacing:-.015em; margin:0 0 .35em}
-.byline{font-size:var(--body); color:var(--gold); font-weight:600; margin-bottom:.5em}
+.byline{font-size:var(--body); color:var(--gold); font-weight:600; letter-spacing: 0.05em; margin-bottom:.5em}
+.people{font-size:var(--body); color:var(--panel-4); font-weight:600; margin-bottom:.5em}
+.journal{font-size:var(--body); color:#ffffff; font-weight:600; margin-top:0.5em; margin-bottom:.25em}
+.pubyear{font-size:var(--body); color:#ffffff; font-weight:800; margin-bottom:.25em}
+.pubcite{font-size:var(--body); color:#ffffff; font-weight:400; margin-bottom:.25em}
 .prose{font-size:var(--body); line-height:1.45; color:#dfe4ea;
   display:-webkit-box; -webkit-line-clamp:8; -webkit-box-orient:vertical; overflow:hidden}
 .tag{
   display:inline-block; font-size:var(--small); letter-spacing:.09em; text-transform:uppercase;
-  color:var(--ink); background:var(--gold); padding:.18em .6em; border-radius:.25em; font-weight:700; margin-bottom:.6em;
+  color:var(--ink); background:var(--blue); padding:.2em .7em; border-radius:.3em; font-weight:800; margin-bottom:.8em;
   align-self:flex-start;   /* hug the text; the card is a flex column that would otherwise stretch it */
 }
 .when{
   display:flex; gap:.9em; align-items:center; flex-wrap:wrap;
   font-size:calc(var(--body)*1.05); font-weight:600; margin:.2em 0 .6em;
 }
-.when .chip{background:var(--panel-2); border:1px solid var(--line); border-radius:8px; padding:.25em .7em; white-space:nowrap}
-.when .chip.gold{color:var(--gold); border-color:var(--gold-dim)}
+.when .chip{background:var(--panel-4); border:1px solid var(--line); border-radius:8px; padding:.25em .7em; white-space:nowrap}
+.when .chip.gold{color:var(--ink); border-color:var(--gold)}
 .also{margin-top:.7em; font-size:calc(var(--body)*0.9); color:var(--muted); line-height:1.35}
 .also b{color:var(--gold); font-weight:600}
 .upnext{display:flex; flex-direction:column; gap:.55em; overflow:hidden}
@@ -218,15 +208,15 @@ img{display:block}
 /* ---------- bottom bar + progress ---------- */
 #bottombar{
   display:flex; align-items:center; justify-content:space-between; gap:var(--pad);
-  padding:calc(var(--pad)*0.55) var(--pad); border-top:1px solid var(--line); background:#0e1114;
+  padding-top:1em; padding-bottom: 1em; padding-right: 2em; padding-left: 2em; border-top:3px solid #db9728; background:#ffffff;
 }
 .dots{display:flex; gap:.5em; align-items:center}
-.dot{width:.62em; height:.62em; border-radius:50%; background:#39414c; transition:background .3s, transform .3s}
-.dot.on{background:var(--gold); transform:scale(1.35)}
-.caption{font-size:var(--small); color:var(--muted); text-align:right; letter-spacing:.03em;
+.dot{width:.62em; height:.62em; border-radius:50%; background:#c9d0d7; transition:background .3s, transform .3s}
+.dot.on{background:#0079C2; transform:scale(1.35)}
+.caption{font-size:12px; color:#4f5b66; text-align:right; letter-spacing:.03em;
   white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
-#progress{position:fixed; left:0; right:0; bottom:0; height:5px; background:#000}
-#progress-fill{height:100%; width:0; background:var(--gold)}
+#progress{position:fixed; left:0; right:0; bottom:0; height:5px; background:#e6eaee}
+#progress-fill{height:100%; width:0; background:#0079C2}
 
 #status{
   position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);
@@ -238,4 +228,5 @@ img{display:block}
 /* Portrait screens: stack the two-column layouts. */
 @media (max-aspect-ratio: 1/1){
   .wx, .split{grid-template-columns:minmax(0,1fr); grid-template-rows:auto minmax(0,1fr)}
+}id-template-rows:auto minmax(0,1fr)}
 }
