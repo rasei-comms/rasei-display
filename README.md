@@ -1,8 +1,7 @@
-# ATOC Lobby Display
+# RASEI Entryway Display
 
-A one-page kiosk slideshow for the monitor in the ATOC entrance. It cycles through
-live satellite imagery, Colorado radar, our own campus weather station, current
-conditions, research highlights, the colloquium schedule, and department notices —
+A one-page kiosk slideshow for the monitor in the RASEI Entryway. It cycles through
+research highlights, the seminar schedule, and institute notices —
 25 seconds each, forever, with no clicking.
 
 It is plain HTML/CSS/JS on GitHub Pages. No build step, no server, no accounts, no
@@ -43,9 +42,7 @@ then open <http://localhost:8000>. Press `Ctrl+C` when you are done.
 
 ## 2. Set the laptop up as a kiosk
 
-Any laptop from the cart is plenty — the page is a few hundred KB of code. The
-heaviest things it loads are the embedded UW animation loops, which fetch a few dozen
-frames each time they come around, so decent wifi helps but wired Ethernet is not
+Any laptop from the cart is plenty — the page is a few hundred KB of code. Decent wifi helps but wired Ethernet is not
 required.
 
 **Before anything else:** log in as a local account that starts without a password
