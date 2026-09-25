@@ -1,10 +1,11 @@
 {
   "_readme": "Everything on the display is controlled from this file. Edit it on github.com, commit, and the screen picks up the change within 10 minutes. Keep it valid JSON: double quotes, commas between items, no trailing comma.",
   "site": {
-    "defaultDuration": 25,
+    "defaultDuration": 20,
     "timezone": "America/Denver",
     "_readme": "defaultDuration is how many seconds each slide stays up. No slide sets its own, so this one number controls the whole rotation."
   },
+	
   "weather": {
     "_readme": "Boulder, CO. To move the location: look up your point at https://api.weather.gov/points/LAT,LON and copy gridId/gridX/gridY into 'gridpoint' as 'BOU/54,74'.",
     "lat": 40.0076,
@@ -15,35 +16,8 @@
     "refreshMinutes": 10,
     "showAlerts": true
   },
-  "station": {
-    "_readme": "The ATOC rooftop station feed published by willychap.github.io/weather. 'url' must be a JSON array of readings with datetime/temp_f/humidity/... fields.",
-    "url": "https://willychap.github.io/weather/data.json",
-    "name": "ATOC campus weather station",
-    "linkLabel": "willychap.github.io/weather",
-    "credit": "CU Boulder ATOC rooftop station · sundowner.colorado.edu",
-    "refreshMinutes": 15
-  },
+	
   "slides": [
-    {
-      "id": "goes-colorado",
-      "type": "image",
-      "title": "GOES-19 GeoColor — Colorado & the Northern Rockies",
-      "subtitle": "Live satellite loop · updates every 5 minutes",
-      "src": "https://cdn.star.nesdis.noaa.gov/GOES19/ABI/SECTOR/nr/GEOCOLOR/GOES19-NR-GEOCOLOR-600x600.gif",
-      "refreshMinutes": 15,
-      "credit": "NOAA/NESDIS STAR · GOES-19 ABI GeoColor",
-      "enabled": false
-    },
-    {
-      "id": "radar-colorado",
-      "type": "image",
-      "title": "Colorado Radar — Denver/Boulder (KFTG)",
-      "subtitle": "Base reflectivity loop · updates every few minutes",
-      "src": "https://radar.weather.gov/ridge/standard/KFTG_loop.gif",
-      "refreshMinutes": 5,
-      "credit": "NOAA/NWS NEXRAD · radar.weather.gov",
-      "enabled": false
-    },
     {
       "id": "weather-now",
       "type": "weather",
@@ -52,333 +26,115 @@
       "enabled": true
     },
     {
-      "id": "cuwrf-upper",
-      "_readme": "CU-WRF keeps figures only for the run in progress and writes them as the model runs, so {RUN}/{FRAME} tries the current six-hourly cycle then the previous one, and the 12-hour forecast then the analysis. Raise \"frames\" for a longer lead time. The host is on the CU network: off campus this slide shows its placeholder.",
-      "type": "image",
-      "title": "CU-WRF Forecast — 250-hPa Jet Stream",
-      "subtitle": "Our own 9-km WRF, run in the department and updated every six hours",
-      "src": "https://atoc03.colorado.edu/~mcla2793/CU-WRF_FIGS/{RUN}/f{FRAME}_upper-level.png",
-      "frames": [
-        12,
-        0
-      ],
-      "refreshMinutes": 60,
-      "credit": "CU-WRF · 9-km GFS-initialized WRF · figures by McKenzie Larson (ATOC)",
-      "enabled": true
-    },
-    {
-      "id": "campus-station",
-      "type": "station",
-      "title": "Skywatch Weather Station",
-      "subtitle": "Live readings from the ATOC instrument on campus",
+      "id": "research",
+      "type": "research",
+      "title": "RASEI Research",
+      "subtitle": "Publications, Awards, and Research News",
       "enabled": true
     },
     {
       "id": "research",
       "type": "research",
-      "title": "ATOC Highlights",
-      "subtitle": "Awards, publications, and people in the department",
+      "title": "RASEI Research",
+      "subtitle": "Publications, Awards, and Research News",
       "enabled": true
     },
     {
-      "id": "wisc-vis-co-loop",
+      "id": "rasei-dashboard",
+      "_readme": "Live feed of RASEIs Publication dashboard",
       "type": "iframe",
-      "title": "Colorado Visible Satellite — Animated",
-      "subtitle": "GOES-East red visible band, high resolution, Boulder centre frame",
-      "src": "https://whirlwind.aos.wisc.edu/~wxp/goes16/vis/goes16_co.html",
-      "zoom": 1.25,
-      "cropTop": 95,
-      "credit": "UW–Madison AOS · GOES-East ABI",
+      "title": "RASEI Publication Dashboard",
+      "subtitle": "",
+      "src": "https://airtable.com/embed/appA1PnCK2ClNkPuK/shrOnZrHYndc3YRc5",
+      "zoom": 1.0,
+      "cropTop": 170,
+      "credit": "RASEI Publication Tracking",
       "enabled": true
-    },
-    {
-      "id": "wisc-vis-co",
-      "_readme": "Static latest frame — kept as a lighter fallback if the animated loop is too much for the laptop or the network.",
-      "type": "image",
-      "title": "Colorado Visible Satellite — High Resolution",
-      "subtitle": "GOES-East red visible band (ABI ch. 2), Boulder centre frame",
-      "src": "https://whirlwind.aos.wisc.edu/~wxp/goes16/vis/co/latest_co_1.jpg",
-      "refreshMinutes": 5,
-      "credit": "UW–Madison AOS · GOES-East ABI",
-      "enabled": false
-    },
+    },	  
     {
       "id": "colloquium",
       "type": "colloquium",
-      "title": "ATOC Colloquium",
-      "subtitle": "Talks, seminars, and department events",
-      "enabled": true
-    },
-    {
-      "id": "wisc-radar-co",
-      "_readme": "Live animated page from UW-Madison, embedded. zoom scales the fixed 1200px-wide page up to fill a TV; cropTop trims that many of the source page’s pixels off the top, hiding its banner and player buttons.",
-      "type": "iframe",
-      "title": "Colorado Reflectivity Composite — Animated",
-      "subtitle": "High-resolution NEXRAD composite loop from UW–Madison",
-      "src": "https://tempest.aos.wisc.edu/radar/co3comphtml5.html",
-      "zoom": 1.45,
-      "cropTop": 140,
-      "credit": "UW–Madison AOS · NEXRAD data from NOAA/NWS and NSF Unidata",
+      "title": "RASEI Events",
+      "subtitle": "Talks, seminars, and Institute events",
       "enabled": true
     },
     {
       "id": "announcements",
       "type": "list",
       "source": "announcements",
-      "title": "Department Notices",
-      "subtitle": "What's happening in ATOC",
+      "title": "RASEI Announcements",
+      "subtitle": "What's happening in RASEI",
       "enabled": true
-    },
-    {
-      "id": "cuwrf-mid",
-      "_readme": "CU-WRF keeps figures only for the run in progress and writes them as the model runs, so {RUN}/{FRAME} tries the current six-hourly cycle then the previous one, and the 12-hour forecast then the analysis. Raise \"frames\" for a longer lead time. The host is on the CU network: off campus this slide shows its placeholder.",
-      "type": "image",
-      "title": "CU-WRF Forecast — 500-hPa Vorticity",
-      "subtitle": "Shortwave troughs, ascent and mid-level temperature from the CU-WRF run",
-      "src": "https://atoc03.colorado.edu/~mcla2793/CU-WRF_FIGS/{RUN}/f{FRAME}_mid-level.png",
-      "frames": [
-        12,
-        0
-      ],
-      "refreshMinutes": 60,
-      "credit": "CU-WRF · 9-km GFS-initialized WRF · figures by McKenzie Larson (ATOC)",
-      "enabled": true
-    },
-    {
-      "id": "wisc-cloudphase",
-      "type": "image",
-      "title": "Day Cloud Phase Distinction RGB",
-      "subtitle": "Ice cloud, water cloud and bare ground separated by color",
-      "src": "https://whirlwind.aos.wisc.edu/~wxp/goes16/multi_day_cloud_phase_rgb/sw/latest_sw_1.jpg",
-      "refreshMinutes": 10,
-      "credit": "UW–Madison AOS · GOES-East ABI multispectral RGB",
-      "enabled": false
-    },
-    {
-      "id": "goes-fulldisk",
-      "type": "image",
-      "title": "GOES-19 Full Disk",
-      "subtitle": "The Western Hemisphere, top of the hour",
-      "src": "https://cdn.star.nesdis.noaa.gov/GOES19/ABI/FD/GEOCOLOR/1808x1808.jpg",
-      "refreshMinutes": 30,
-      "credit": "NOAA/NESDIS STAR · GOES-19 ABI GeoColor",
-      "enabled": true
-    },
-    {
-      "id": "spc-outlook",
-      "type": "image",
-      "title": "Severe Weather Outlook — Today",
-      "subtitle": "Storm Prediction Center Day 1 convective outlook",
-      "src": "https://www.spc.noaa.gov/products/outlook/day1otlk.png",
-      "refreshMinutes": 60,
-      "credit": "NOAA/NWS Storm Prediction Center, Norman OK",
-      "enabled": true
-    },
-    {
-      "id": "wisc-airmass",
-      "type": "image",
-      "title": "Air Mass RGB — Southwest",
-      "subtitle": "Dry stratospheric intrusions, jet streaks and frontal boundaries",
-      "src": "https://whirlwind.aos.wisc.edu/~wxp/goes16/multi_air_mass_rgb/sw/latest_sw_1.jpg",
-      "refreshMinutes": 10,
-      "credit": "UW–Madison AOS · GOES-East ABI multispectral RGB",
-      "enabled": false
-    },
-    {
-      "id": "wisc-meso-rapid",
-      "_readme": "NWS repositions mesoscale sector 1 daily onto whatever is most active, so this roams the country. That is the point of it — it is wherever the severe weather is, at one frame per minute.",
-      "type": "iframe",
-      "title": "Mesoscale Rapid Scan — One-Minute Imagery",
-      "subtitle": "GOES-East floating sector, parked on the day’s most extreme weather",
-      "src": "https://whirlwind.aos.wisc.edu/~wxp/goes16/grb/meso_vis_sqrt/meso1_60.html",
-      "zoom": 1.4,
-      "cropTop": 115,
-      "credit": "UW–Madison AOS · GOES-East ABI mesoscale sector",
-      "enabled": true
-    },
-    {
-      "id": "goes-conus",
-      "type": "image",
-      "title": "GOES-19 GeoColor — Continental U.S.",
-      "subtitle": "Latest full-CONUS scan",
-      "src": "https://cdn.star.nesdis.noaa.gov/GOES19/ABI/CONUS/GEOCOLOR/1250x750.jpg",
-      "refreshMinutes": 10,
-      "credit": "NOAA/NESDIS STAR · GOES-19 ABI GeoColor",
-      "enabled": false
-    },
-    {
-      "id": "cpc-temp",
-      "type": "image",
-      "title": "8–14 Day Temperature Outlook",
-      "subtitle": "Probability of above- or below-normal temperatures",
-      "src": "https://www.cpc.ncep.noaa.gov/products/predictions/814day/814temp.new.gif",
-      "refreshMinutes": 180,
-      "credit": "NOAA Climate Prediction Center",
-      "enabled": true
-    },
-    {
-      "id": "iri-enso",
-      "_readme": "IRI \"ENSO Predictions Plume\" (figure 4 of their Quick Look). {YYYY}/{M0} is filled in at display time; IRI numbers months from zero, so August is 7. Falls back to last month if this month is not published yet.",
-      "type": "image",
-      "title": "ENSO Predictions Plume",
-      "subtitle": "Niño 3.4 SST anomaly forecast",
-      "src": "https://ensoforecast2.iri.columbia.edu/figure4_plot/{YYYY}/{M0}",
-      "refreshMinutes": 720,
-      "credit": "International Research Institute for Climate and Society, Columbia University",
-      "enabled": false
-    },
-    {
-      "id": "iri-enso-history",
-      "_readme": "IRI figure 7. Parked because ensoforecast2.iri.columbia.edu stopped responding in September 2026 — the host accepts connections and never answers. Check it is back before re-enabling. The last path component is a count of past seasons, not a date.",
-      "type": "image",
-      "title": "ENSO Model Skill — 22 Seasons of Forecasts",
-      "subtitle": "Every model’s past Niño 3.4 forecast against observations (black)",
-      "src": "https://ensoforecast2.iri.columbia.edu/figure7_plot/{YYYY}/{M0}/22",
-      "refreshMinutes": 720,
-      "credit": "International Research Institute for Climate and Society, Columbia University",
-      "enabled": false
-    },
-    {
-      "id": "keeling",
-      "type": "image",
-      "title": "Atmospheric CO2 at Mauna Loa",
-      "subtitle": "The Keeling Curve, updated monthly",
-      "src": "https://gml.noaa.gov/webdata/ccgg/trends/co2_trend_mlo.png",
-      "refreshMinutes": 720,
-      "credit": "NOAA Global Monitoring Laboratory, Boulder CO",
-      "enabled": false
-    },
-    {
-      "id": "cpc-precip",
-      "type": "image",
-      "title": "8–14 Day Precipitation Outlook",
-      "subtitle": "Probability of above- or below-normal precipitation",
-      "src": "https://www.cpc.ncep.noaa.gov/products/predictions/814day/814prcp.new.gif",
-      "refreshMinutes": 180,
-      "credit": "NOAA Climate Prediction Center",
-      "enabled": true
-    },
-    {
-      "id": "station-dashboard",
-      "_readme": "The full Quarto dashboard, embedded live. It is a heavy page (~8 MB), so it is off by default — set enabled to true to put it in the rotation. 'zoom' scales the page up for a TV: 1.4 means 140%.",
-      "type": "iframe",
-      "title": "Campus Weather Dashboard",
-      "subtitle": "Full record from the ATOC station",
-      "src": "https://willychap.github.io/weather/dashboard.html",
-      "zoom": 1.25,
-      "credit": "CU Boulder ATOC station dashboard",
-      "enabled": false
     }
   ],
+	
   "research": [
     {
-      "tag": "On PBS",
-      "title": "ATOC’s Greenland campaign features in the PBS series “Ages of Ice”",
-      "people": "Sebastian Schmidt’s group · Vikas Nataraja and Ken Hirata",
-      "blurb": "ARCSIX, the NASA airborne campaign over Greenland led by Sebastian Schmidt, appears in episode two of Ages of Ice. Vikas Nataraja and Ken Hirata supported the mission in the field — pictured with the ARCSIX sticker they had just added to a hangar door, a campaign tradition, and with NASA’s P-3 after some work on the group’s sensors. “Polar Seas” airs Wednesday, September 23 at 10 p.m. ET on PBS, the PBS app, and PBS’s YouTube channel. #AgesofIce",
-      "image": "images/arcsix-vikas-ken.jpg",
-      "until": "2026-09-23"
+      "tag": "Publication",
+      "title": "Power Grid Infrastructure for AI Data Centers",
+      "people": "Baker | Hodge",
+      "blurb": "The field of artificial intelligence (AI), particularly large language models (LLMs), has taken the world by storm in recent years. Fueled by recent advances in deep learning and massive datasets, these models have demonstrated remarkable abilities across a broad range of applications and a strong potential for positive contributions in many economic sectors. Consequently, a fierce competition has been sparked among technology leaders, and even nations, in the development of large-scale data centers, creating a global surge in electricity demand.",
+      "journal": "Computer",
+	  "pubyear":"2026",
+	  "pubcite":"59, 50-59",
+	  "image": "images/2026_09_Computer.png",
+      "until": "2026-11-23"
     },
     {
-      "tag": "NSF CAREER Award",
-      "title": "Andrew Winters receives an NSF CAREER Award",
-      "people": "Andrew Winters · ATOC",
-      "blurb": "The award funds work on the global characteristics, predictability, and future changes of polar–subtropical jet stream superposition events.",
-      "image": "images/andrew-winters.jpg"
+      "tag": "Publication",
+      "title": "A Simpler Rule for a Complex Solar Material",
+      "people": "Zunger",
+      "blurb": "Halide perovskites are one of solar energy's most promising materials. The are cheap, tunable, easy to manufacture, and efficient enough to rival silicon. New research from RASEI Fellow Alex Zunger shows their most useful properties may be far easier to predict than scientists thought.",
+      "journal": "Physical Review B",
+	  "pubyear":"2026",
+	  "pubcite":"114, 024108",
+	  "image": "images/2026_08_Zunger.png",
+      "until": "2026-10-23"
     },
     {
-      "tag": "Student award",
-      "title": "Genevieve Clow wins the CESM Graduate Student Award",
-      "people": "Genevieve Clow · ATOC graduate student",
-      "blurb": "Presented at the CESM Workshop in Boulder in June 2026. The award recognizes outstanding graduate research in Earth system modeling.",
-      "image": "images/clow-cesm-award.jpg"
+      "tag": "Award",
+      "title": "CU Boulder’s “Frozen Air” window material wins gold in R&D 100 Green Tech Awards",
+      "people": "Smalyukh",
+      "blurb": "RASEI Fellow Ivan Smalyukh’s transparent heat-blocking material, MOCHI, just received top honors in the R&D World’s 2026 Special Recognition: Green Tech Category. Buildings consume roughly 40% of the energy generated worldwide, much of it being lost through windows. Insulating walls is relatively easy, but insulating glass, while keeping it clear, is not. “Finding insulators that are transparent is really challenging,” explains Smalyukh.",
+      "journal": "",
+	  "pubyear":"",
+	  "pubcite":"",
+	  "image": "images/2026_08_RnD100.png",
+      "until": "2026-12-23"
     },
     {
-      "tag": "AMS honors",
-      "title": "Three American Meteorological Society honors",
-      "people": "CUBAMS · Peter Blanken · Matthew Shupe",
-      "blurb": "CUBAMS, the CU Boulder AMS student chapter, won Local Student Chapter of the Year. Peter Blanken (Geography, who teaches an ATOC course) and Matthew Shupe (CIRES) were both elected AMS Fellows.",
-      "image": ""
-    },
-    {
-      "tag": "New publication",
-      "title": "What actually drives melt on the Greenland ice sheet",
-      "people": "Ziqi Yin · ATOC graduate student",
-      "blurb": "Yin and co-authors used causal discovery to identify which surface energy balance terms drive surface melt on the Greenland ice sheet. Geophysical Research Letters, May 2026 — doi.org/10.1029/2025GL119928",
-      "image": "images/yin-greenland-causal-graph.png"
-    },
-    {
-      "tag": "ATOC Social Committee Events",
-      "title": "Thank you for joining us for the ATOC Annual BBQ!",
-      "people": "ATOC",
-      "blurb": "Trading red pens for grill tongs, our department came together to flip burgers, swap stories, and build the ultimate support network outside the classroom.",
-      "image": "images/ATOC_BBQ_2026_GroupPhoto.jpg"
-    }
+      "tag": "Publication",
+      "title": "Twisting Magnetism",
+      "people": "Beard | Luther | Miller-Link",
+      "blurb": "The combination of semiconducting properties and synthetically tunable chirality in chiral metal halide semiconductors (CMHSs) offers a compelling platform for room temperature control of electronic spin properties, leveraging effects such as chirality-induced spin selectivity (CISS). We report CISS-induced magnetoresistance (CISS-MR) exceeding 100% for spin valves operating at room temperature.",
+      "journal": "Science Advances",
+	  "pubyear":"2026",
+	  "pubcite":"12, 37, aed7176",
+	  "image": "images/2026_09_ScienceAdvances.png",
+      "until": "2026-11-09"
+    }	  
   ],
+	
   "colloquia": [
     {
       "_readme": "Past dates disappear on their own, so it is safe to paste in the whole semester. Date must be YYYY-MM-DD. \"image\" is optional — a flyer in images/ shows beside the details.",
-      "date": "2026-09-04",
-      "time": "11:00 AM",
-      "location": "SEEC S228 (Seivers Room)",
-      "speaker": "Dr. Scott Doney",
-      "affiliation": "University of Virginia",
-      "title": "Marine Carbon Dioxide Removal",
-      "tag": "Distinguished Lecture",
-      "abstract": "Stabilizing global climate will likely require removing carbon dioxide from the atmosphere as well as cutting emissions. Ocean-based approaches show promise, but none is ready to deploy at scale: gaps remain in efficacy, permanence, verification, cost, and governance.",
-      "image": "images/doney-seminar-flyer.jpg"
-    },
-    {
-      "date": "2026-09-10",
+      "date": "2026-11-10",
       "time": "1:00 PM",
-      "location": "SEEC N224",
-      "speaker": "Jelle Schrijver",
-      "affiliation": "",
-      "title": "A Methane Plume Seen from Space: What Can We Actually Measure?",
-      "tag": "Special seminar",
-      "abstract": "Satellites can now resolve methane plumes from individual point sources at scales of tens of metres. Turning an observed plume into an emission rate is far harder: both the retrieval and the atmospheric transport carry uncertainty. This talk covers a physics-based optimal-estimation retrieval, how differences between instruments affect what counts as a detection, and work using large-eddy simulation against controlled-release experiments to pin down how wind and turbulence limit satellite-derived emission estimates.",
-      "image": "images/jelle-schrijver.jpg"
-    },
-    {
-      "date": "2026-09-18",
-      "time": "11:00 AM",
-      "location": "SEEC S228 · also on Zoom",
-      "speaker": "Dr. Lynn Harvey (LASP) and Dr. Laura Holt (NWRA)",
-      "affiliation": "",
-      "title": "Cora Randall: A career of scientific vision, community, and deep humanity",
-      "tag": "In honor of Prof. Cora Randall",
-      "abstract": "Cora Randall’s research on the energetic particle precipitation indirect effect showed how nitrogen oxides made high in the atmosphere descend through the winter polar vortex to alter stratospheric ozone. She led the AIM/CIPS investigation of polar mesospheric clouds and the WAVE DRIVE Science Center. This colloquium celebrates both the science and the person — teacher, mentor, department chair, and extraordinarily generous colleague.",
-      "image": "images/randall-colloquium-flyer.jpg"
+      "location": "SEEC C120",
+      "speaker": "Dr. Michael F. Howland",
+      "affiliation": "Massachusetts Institute of Technology",
+      "title": "Unraveling interactions between extreme-scale wind power systems and stratified, turbulent environmental flows",
+      "tag": "Big Energy Seminar",
+	  "abstract": "",
+      "image": "images/2026_11_10_BES_Howland.png"
     }
   ],
+	
   "announcements": [
     {
-      "title": "Order an ATOC T-Shirt by September 18!",
-      "body": "$22. The group order closes Friday, September 18 — scan the QR code on the flyer to order.",
-      "image": "images/ATOC_Tshirt_GroupOrder_2026.jpg",
-      "until": "2026-09-18"
-    },
-    {
-      "title": "Welcome to ATOC",
-      "body": "The Department of Atmospheric and Oceanic Sciences."
-    },
-    {
-      "title": "Find us",
-      "body": "Main office: SEEC building, CU Boulder East Campus. Department website: atoc.colorado.edu"
-    },
-    {
-      "title": "ATOC Mario Kart Tournament — Friday, September 25",
-      "body": "3:45–6:00 PM in SEEC N224, hosted by the ATOC Social Committee. Prizes, pizza, and popcorn — scan the QR code on the flyer to RSVP.",
-      "image": "images/mario-kart-tournament.jpg",
-      "until": "2026-09-25"
-    },
-    {
-      "title": "Welcome Back",
-      "body": "Do your homework"
-    },
-    {
-      "title": "We are serious",
-      "body": "Do your homework and do it correctly"
+      "title": "Welcome to RASEI",
+      "body": "Keep up to Date! RASEI sends out a weekly digest and a monthly newsletter. Stay in the know about recent news, upcoming events, and opportunities. If you are not receiving this information, use the QR code to join our distribution lists.",
+	  "image": "images/rasei_signup_qr.png"
     }
   ]
 }
