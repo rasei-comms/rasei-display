@@ -1,4 +1,4 @@
-/* ATOC lobby display — vanilla JS, no build step, no dependencies.
+/* RASEI lobby display — vanilla JS, no build step, no dependencies.
    Everything an editor needs to change lives in content.json. */
 
 'use strict';
@@ -581,7 +581,10 @@ async function renderResearch(slide) {
   const card = el('div', 'card main');
   if (item.tag) card.append(el('div', 'tag', item.tag));
   card.append(el('h2', 'lede', clean(item.title)));
-  if (item.people) card.append(el('div', 'byline', clean(item.people)));
+  if (item.people) card.append(el('div', 'people', clean(item.people)));
+  if (item.journal) card.append(el('div', 'journal', clean(item.journal)));
+  if (item.pubyear) card.append(el('div', 'pubyear', clean(item.pubyear)));
+  if (item.pubcite) card.append(el('div', 'pubcite', clean(item.pubcite)));
   card.append(el('p', 'prose', clean(item.blurb)));
   split.append(card);
 
