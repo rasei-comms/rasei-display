@@ -528,7 +528,9 @@ function renderFrame(slide) {
 /* Advance a rotating list one item each time its slide comes around. */
 function nextItem(key, list) {
   if (!list || !list.length) return null;
-  const i = state.cursors[key] == null ? 0 : state.cursors[key];
+  // Modulo on read too: past talks and expired highlights drop off the list, so a
+  // cursor saved against a longer list must wrap rather than point past the end.
+  const i = (state.cursors[key] || 0) % list.length;
   state.cursors[key] = (i + 1) % list.length;
   return list[i];
 }
@@ -629,58 +631,34 @@ function upcoming(list) {
 async function renderColloquium(slide) {
   const list = upcoming(state.content?.colloquia);
   if (!list.length) {
-    return frame(slide,
-      el('div', 'empty', 'Colloquium schedule resumes soon — see atoc.colorado.edu'),
-      slide.credit);
+    return frame(slide, el('div', 'empty', 'Seminar schedule resumes soon.'), slide.credit);
   }
-  const next = list[0];
-  const later = list.slice(1, 5);
-  // The right-hand panel shows the flyer when there is one, otherwise what is
-  // coming up after this talk.
-  const hasPanel = Boolean(next.image) || later.length > 0;
-  const split = el('div', hasPanel ? 'split' : 'split no-media');
+  // One talk per showing, soonest first, cycling through every upcoming talk —
+  // the same rotation the research highlights use.
+  const item = nextItem('colloquium', list);
+  const isNext = item === list[0];
 
+  const split = el('div', 'split' + (item.image ? '' : ' no-media'));
   const card = el('div', 'card main');
-  card.append(el('div', 'tag', next.tag || 'Next colloquium'));
+  card.append(el('div', 'tag', item.tag || (isNext ? 'Next Seminar' : 'Upcoming Seminar')));
   const when = el('div', 'when');
   when.append(el('span', 'chip gold',
-    next._d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })));
-  if (next.time) when.append(el('span', 'chip', next.time));
-  if (next.location) when.append(el('span', 'chip', next.location));
+    item._d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })));
+  if (item.time) when.append(el('span', 'chip', item.time));
+  if (item.location) when.append(el('span', 'chip', item.location));
   card.append(when);
-  card.append(el('h2', 'lede', clean(next.title)));
-  const who = [clean(next.speaker), clean(next.affiliation)].filter(Boolean).join(' · ');
+  card.append(el('h2', 'lede', clean(item.title)));
+  const who = [clean(item.speaker), clean(item.affiliation)].filter(Boolean).join(' · ');
   if (who) card.append(el('div', 'byline', who));
-  if (next.abstract) card.append(el('p', 'prose', clean(next.abstract)));
-
-  // With a flyer taking the panel, later talks still get a line under the text.
-  if (next.image && later.length) {
-    const also = el('div', 'also');
-    also.append(el('b', null, 'Also coming up: '));
-    also.append(document.createTextNode(later.map((c) =>
-      c._d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
-      + ' ' + clean(c.speaker || c.title)).join(' · ')));
-    card.append(also);
-  }
+  if (item.abstract) card.append(el('p', 'prose', clean(item.abstract)));
   split.append(card);
 
-  if (next.image) {
+  if (item.image) {
     const media = el('div', 'media');
-    try { media.append(await loadImage(next.image)); } catch (err) { console.warn(err); }
+    try { media.append(await loadImage(item.image)); } catch (err) { console.warn(err); }
     split.append(media);
-  } else if (later.length) {
-    const rest = el('div', 'card upnext');
-    rest.append(el('h3', null, 'Also coming up'));
-    for (const c of later) {
-      const u = el('div', 'u');
-      u.append(el('b', null, c._d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
-        + ' — ' + clean(c.speaker || c.title)));
-      u.append(el('span', null, clean(c.title && c.speaker ? c.title : c.affiliation || '')));
-      rest.append(u);
-    }
-    split.append(rest);
   }
-  return frame(slide, split, slide.credit);
+  return frame(slide, split, item.credit || slide.credit);
 }
 
 function renderList(slide) {
