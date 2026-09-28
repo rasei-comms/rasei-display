@@ -1,7 +1,7 @@
 {
   "_readme": "Everything on the display is controlled from this file. Edit it on github.com, commit, and the screen picks up the change within 10 minutes. Keep it valid JSON: double quotes, commas between items, no trailing comma.",
   "site": {
-    "defaultDuration": 20,
+    "defaultDuration": 30,
     "timezone": "America/Denver",
     "_readme": "defaultDuration is how many seconds each slide stays up. No slide sets its own, so this one number controls the whole rotation."
   },
