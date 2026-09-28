@@ -71,7 +71,7 @@
       "tag": "Publication",
       "title": "Understanding the Pathway for Industrial Heat Decarbonization",
       "people": "Carpenter",
-      "blurb": "Industrial heat production represents approximately 50% of U.S. manufacturing sector energy needs and related emissions, yet emission reduction strategies for this sector remain underexplored relative to power and transportation. This study applies the open-source LiAISON (Life cycle Assessment Integration into Scalable Open-source Numerical models) framework, integrating for the first time the Global Change Assessment Model (GCAM) into a prospective LCA framework, to evaluate 189 unique configurations of low-temperature (100–500°C) industrial heat supply technologies across nine environmental impact categories from 2020 to 2100.",
+      "blurb": "Industrial heat production represents approximately 50% of U.S. manufacturing sector energy needs and related emissions, yet emission reduction strategies for this sector remain underexplored relative to power and transportation. This study applies the open-source LiAISON (Life cycle Assessment Integration into Scalable Open-source Numerical models) framework, integrating for the first time the Global Change Assessment Model (GCAM) into a prospective LCA framework.",
       "journal": "Journal of Cleaner Production",
 	  "pubyear":"2026",
 	  "pubcite":"577, 149299",
