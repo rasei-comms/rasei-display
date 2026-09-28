@@ -152,7 +152,12 @@
   ],
 	
   "announcements": [
-    {
+      {
+      "title": "Mike McGehee Selected to a 2026-2027 Distinguished Research Leactureship",
+      "body": "Among the most esteemed honors bestowed by the faculty upon CU Boulder faculty members, the Distinguished Research Lectureship recognizes outstanding contributions to research, scholarship and creative work. Each year, RIO solicits nominations from faculty, with recipients selected based on recommendations from a faculty review panel. Prof. McGehee will be delivering the talk this Fall, so keep an eye for the dates and make a plan to attend.",
+	  "image": "images/2026_10_McGehee.jpg"
+    },
+	  {
       "title": "Welcome to RASEI",
       "body": "Keep up to Date! RASEI sends out a weekly digest and a monthly newsletter. Stay in the know about recent news, upcoming events, and opportunities. If you are not receiving this information, use the QR code to join our distribution lists.",
 	  "image": "images/rasei_signup_qr.png"
