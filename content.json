@@ -69,6 +69,17 @@
   "research": [
     {
       "tag": "Publication",
+      "title": "Understanding the Pathway for Industrial Heat Decarbonization",
+      "people": "Carpenter",
+      "blurb": "Industrial heat production represents approximately 50% of U.S. manufacturing sector energy needs and related emissions, yet emission reduction strategies for this sector remain underexplored relative to power and transportation. This study applies the open-source LiAISON (Life cycle Assessment Integration into Scalable Open-source Numerical models) framework, integrating for the first time the Global Change Assessment Model (GCAM) into a prospective LCA framework, to evaluate 189 unique configurations of low-temperature (100–500°C) industrial heat supply technologies across nine environmental impact categories from 2020 to 2100.",
+      "journal": "Journal of Cleaner Production",
+	  "pubyear":"2026",
+	  "pubcite":"577, 149299",
+	  "image": "images/2026_09_CleanerProduction.png",
+      "until": "2026-11-28"
+    },
+	  {
+      "tag": "Publication",
       "title": "Power Grid Infrastructure for AI Data Centers",
       "people": "Baker | Hodge",
       "blurb": "The field of artificial intelligence (AI), particularly large language models (LLMs), has taken the world by storm in recent years. Fueled by recent advances in deep learning and massive datasets, these models have demonstrated remarkable abilities across a broad range of applications and a strong potential for positive contributions in many economic sectors. Consequently, a fierce competition has been sparked among technology leaders, and even nations, in the development of large-scale data centers, creating a global surge in electricity demand.",
