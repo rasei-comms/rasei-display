@@ -125,7 +125,19 @@
       "tag": "Big Energy Seminar",
 	  "abstract": "",
       "image": "images/2026_11_10_BES_Howland.png"
-    }
+    },
+    {
+      "_readme": "Past dates disappear on their own, so it is safe to paste in the whole semester. Date must be YYYY-MM-DD. \"image\" is optional — a flyer in images/ shows beside the details.",
+      "date": "2026-10-27",
+      "time": "2:45 PM",
+      "location": "JSCBB, A108",
+      "speaker": "Dr Steven R. Spurgeon",
+      "affiliation": "National Laboratory of the Rockies",
+      "title": "Structure, Process, Scale: Autonomous Materials Discovery from Atoms to Devices",
+      "tag": "ChBE Patten Seminar",
+	  "abstract": "",
+      "image": "images/2026_10_Spurgeon.png"
+    }	  
   ],
 	
   "announcements": [
