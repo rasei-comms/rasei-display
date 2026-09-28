@@ -138,6 +138,16 @@
   "colloquia": [
     {
       "_readme": "Past dates disappear on their own, so it is safe to paste in the whole semester. Date must be YYYY-MM-DD. \"image\" is optional — a flyer in images/ shows beside the details.",
+      "date": "2026-10-08",
+      "time": "All Day",
+      "location": "UMC",
+      "title": "CU Boulder Sustainability Research Summit",
+      "tag": "Sustainability Workshop",
+	  "abstract": "The Sustainability Research Summit is a two-day event designed to connect CU Boulder researchers and expand their collaborations, as well as reach external parties who are interested in partnering with the university, investing in CU Boulder start-ups, or drawing upon our research expertise. ",
+      "image": "images/2026_10_SusSum.jpg"
+    },
+	  {
+      "_readme": "Past dates disappear on their own, so it is safe to paste in the whole semester. Date must be YYYY-MM-DD. \"image\" is optional — a flyer in images/ shows beside the details.",
       "date": "2026-11-10",
       "time": "1:00 PM",
       "location": "SEEC C120",
