@@ -110,7 +110,18 @@
 	  "pubcite":"12, 37, aed7176",
 	  "image": "images/2026_09_ScienceAdvances.png",
       "until": "2026-11-09"
-    }	  
+    },
+    {
+      "tag": "Publication",
+      "title": "Protective Layers Enable More Durable Perovskite Solar Cells",
+      "people": "McGehee | Berry | Schelhas | Zhu | Luther",
+      "blurb": "Tin oxide, normally used as an electron-transport layer in perovskite solar cells, can stabilize nickel oxide hole-transport layers. Xie et al. showed that an ultrathin conformal tin oxide interlayer can suppress interface chemical reactions between nickel oxide and the perovskite that accelerate perovskite degradation. Perovskite solar modules retained 95.7% of their certified power conversion efficiency of 23.4% after 1000 1-hour thermal cycles between −65° and 85°C.",
+      "journal": "Science",
+	  "pubyear":"2026",
+	  "pubcite":"392, 6818, 1364-1368",
+	  "image": "images/2026_09_PerovskiteScience",
+      "until": "2026-11-24"
+    }		  
   ],
 	
   "colloquia": [
