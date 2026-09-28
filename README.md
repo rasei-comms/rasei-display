@@ -18,7 +18,7 @@ cost. Once it is running, the only thing anyone ever has to touch is `content.js
    *Deploy from a branch*, branch `main`, folder `/ (root)`. Save.
 4. Wait a minute, then open:
 
-   **https://will-eric-chapman-cu.github.io/atoc_display/**
+   **https://rasei-comms.github.io/rasei-display/**
 
 That URL is what the lobby laptop points at. Every change you commit is live within
 a minute or two.
