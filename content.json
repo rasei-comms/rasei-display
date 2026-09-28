@@ -42,12 +42,10 @@
     {
       "id": "rasei-dashboard",
       "_readme": "Live feed of RASEIs Publication dashboard",
-      "type": "iframe",
+      "type": "image",
       "title": "RASEI Publication Dashboard",
-      "subtitle": "",
-      "src": "https://airtable.com/embed/appA1PnCK2ClNkPuK/shrOnZrHYndc3YRc5",
-      "zoom": 1.0,
-      "cropTop": 170,
+      "subtitle": "Updated 09/29/2026",
+      "src": "images/RASEI_PublicationDashboard.png",
       "credit": "RASEI Publication Tracking",
       "enabled": true
     },	  
