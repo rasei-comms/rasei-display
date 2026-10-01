@@ -123,6 +123,17 @@
       "until": "2026-11-09"
     },
     {
+      "tag": "NYT OP ED",
+      "title": "You See Much. I see the Most Beautiful Places on Earth",
+      "people": "Turetsky",
+      "blurb": "In this Op-Ed, Merritt describes the weird and wonderful world of bogs. Explaining how she was drawn to these special regions, how her research has explored these fascinating worlds, and how they have an impact on our environment and the climate. This piece opens the door to finding out more in her upcoming book, Boglands.",
+      "journal": "The New York Times",
+	  "pubyear":"2026",
+	  "pubcite":"October 1",
+	  "image": "images/2026_10_NYT_Turetsky.png",
+      "until": "2026-12-09"
+    },
+    {
       "tag": "Publication",
       "title": "Protective Layers Enable More Durable Perovskite Solar Cells",
       "people": "McGehee | Berry | Schelhas | Zhu | Luther",
@@ -174,9 +185,8 @@
 	
   "announcements": [
       {
-      "tag": "AWARD",
 	  "title": "Mike McGehee Selected to a 2026-2027 Distinguished Research Leactureship",
-      "body": "Among the most esteemed honors bestowed by the faculty upon CU Boulder faculty members, the Distinguished Research Lectureship recognizes outstanding contributions to research, scholarship and creative work. Each year, RIO solicits nominations from faculty, with recipients selected based on recommendations from a faculty review panel. Prof. McGehee will be delivering the talk this Fall, so keep an eye out for the date and make a plan to attend...",
+      "body": "Among the most esteemed honors bestowed by the faculty upon CU Boulder faculty members, the Distinguished Research Lectureship recognizes outstanding contributions to research, scholarship and creative work. Each year, RIO solicits nominations from faculty, with recipients selected based on recommendations from a faculty review panel. Prof. McGehee will be delivering the talk this Fall, so keep an eye out for the date and make a plan to attend.",
 	  "image": "images/2026_10_McGehee.jpg"
     },
       {
