@@ -174,7 +174,8 @@
 	
   "announcements": [
       {
-      "title": "Mike McGehee Selected to a 2026-2027 Distinguished Research Leactureship",
+      "tag": "AWARD",
+	  "title": "Mike McGehee Selected to a 2026-2027 Distinguished Research Leactureship",
       "body": "Among the most esteemed honors bestowed by the faculty upon CU Boulder faculty members, the Distinguished Research Lectureship recognizes outstanding contributions to research, scholarship and creative work. Each year, RIO solicits nominations from faculty, with recipients selected based on recommendations from a faculty review panel. Prof. McGehee will be delivering the talk this Fall, so keep an eye out for the date and make a plan to attend.",
 	  "image": "images/2026_10_McGehee.jpg"
     },
