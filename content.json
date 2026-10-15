@@ -169,6 +169,18 @@
 	  "abstract": "",
       "image": "images/2026_11_10_BES_Howland.png"
     },
+	  {
+      "_readme": "Past dates disappear on their own, so it is safe to paste in the whole semester. Date must be YYYY-MM-DD. \"image\" is optional — a flyer in images/ shows beside the details.",
+      "date": "2026-11-18",
+      "time": "4:00 PM",
+      "location": "CASE Auditorium",
+      "speaker": "Dr. Mike McGehee",
+      "affiliation": "University of Colorado Boulder",
+      "title": "Harnessing Sunlight & Mentoring Startup Founders to Address Climate Change",
+      "tag": "128th Distinguished Research Lecture",
+	  "abstract": "",
+      "image": "images/2026_10_McGehee.jpg"
+    },
     {
       "_readme": "Past dates disappear on their own, so it is safe to paste in the whole semester. Date must be YYYY-MM-DD. \"image\" is optional — a flyer in images/ shows beside the details.",
       "date": "2026-10-27",
