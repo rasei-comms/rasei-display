@@ -160,6 +160,16 @@
   "colloquia": [
     {
       "_readme": "Past dates disappear on their own, so it is safe to paste in the whole semester. Date must be YYYY-MM-DD. \"image\" is optional — a flyer in images/ shows beside the details.",
+      "date": "2026-10-29",
+      "time": "6:30 PM",
+      "location": "Boulder Bookstore",
+      "title": "BOG PARTY",
+      "tag": "Bookstore Launch",
+	  "abstract": "Come and join Merritt Turetsky at the Boulder Bookstore on Thursday evening to talk about meat-eating plans, bog burials (bodies, butter, entires ships...) historical and modern warfare, carbon cathedrals, and why these places need us as much as we need them!",
+      "image": "images/2026_10_NYT_Turetsky.png"
+    },
+	{
+      "_readme": "Past dates disappear on their own, so it is safe to paste in the whole semester. Date must be YYYY-MM-DD. \"image\" is optional — a flyer in images/ shows beside the details.",
       "date": "2026-10-08",
       "time": "All Day",
       "location": "UMC",
