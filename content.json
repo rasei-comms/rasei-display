@@ -145,6 +145,14 @@
       "until": "2026-12-09"
     },
     {
+      "tag": "Innovation",
+      "title": "Boulder Climate Ventures",
+      "people": "McGehee",
+      "blurb": "Are you ready to work at the edge of innovation? Find out more about Boulder Climate Ventures. Check out the course, the info session, and the Pitch Night.",
+	  "image": "images/2026_10_BCV.jpg",
+      "until": "2026-11-11"
+    },	  
+    {
       "tag": "Publication",
       "title": "Protective Layers Enable More Durable Perovskite Solar Cells",
       "people": "McGehee | Berry | Schelhas | Zhu | Luther",
@@ -217,11 +225,6 @@
   ],
 	
   "announcements": [
-      {
-	  "title": "Boulder Climate Ventures",
-      "body": "Are you ready to work at the edge of innovation? Find out more about Boulder Climate Ventures. Check out the course, the info session, and the Pitch Night.",
-	  "image": "images/2026_10_BCV.jpg"
-    },
 	  {
 	  "title": "Mike McGehee Selected to a 2026-2027 Distinguished Research Leactureship",
       "body": "Among the most esteemed honors bestowed by the faculty upon CU Boulder faculty members, the Distinguished Research Lectureship recognizes outstanding contributions to research, scholarship and creative work. Each year, RIO solicits nominations from faculty, with recipients selected based on recommendations from a faculty review panel. Prof. McGehee will be delivering the talk this Fall, so keep an eye out for the date and make a plan to attend.",
