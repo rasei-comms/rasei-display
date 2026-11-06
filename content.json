@@ -69,6 +69,17 @@
   "research": [
     {
       "tag": "Publication",
+      "title": "Upstream Challenges in the Scaling of Plastics Chemical Recycling",
+      "people": "Knauer",
+      "blurb": "Recent advances in chemical recycling have moved innovative pathways from laboratory research toward commercial deployment. However, upstream challenges, including feedstock collection, preprocessing, contaminant removal, and solids handling, remain underappreciated despite major impacts on cost, reliability, and scalability.",
+      "journal": "Current Opinion in Chemical Engineering",
+	  "pubyear":"2026",
+	  "pubcite":"54, 101303",
+	  "image": "images/2026_10_CurrOpChemEd.png",
+      "until": "2026-12-28"
+    },
+	  {
+      "tag": "Publication",
       "title": "Could a $200K bond for satellites paid before launch prevent a space junk disaster in orbit? Here's why some scientists think so",
       "people": "Kaffine",
       "blurb": "The space around Earth is turning into a junkyard. Researchers think a refundable deposit scheme could force satellite operators to clean up their act before a tipping point is reached.",
