@@ -600,7 +600,7 @@ async function renderResearch(slide) {
   split.append(card);
 
   if (item.image) {
-    const media = el('div', 'media');
+    const media = el('div', 'media' + (item.imageBg === 'black' ? ' dark' : ''));
     try { media.append(await loadImage(item.image)); } catch (err) { console.warn(err); }
     split.append(media);
   }
@@ -663,7 +663,7 @@ async function renderColloquium(slide) {
   split.append(card);
 
   if (item.image) {
-    const media = el('div', 'media');
+    const media = el('div', 'media' + (item.imageBg === 'black' ? ' dark' : ''));
     try { media.append(await loadImage(item.image)); } catch (err) { console.warn(err); }
     split.append(media);
   }
