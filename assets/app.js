@@ -575,11 +575,20 @@ async function renderImage(slide) {
   return frame(slide, wrap, slide.credit);
 }
 
+/* Text-to-image balance for research and colloquium slides. The default is roughly
+   even; "layout": "wide-image" on an item (or on the slide, as a default for all its
+   items) gives the picture about 70% of the width and the text about 30%. */
+function splitClass(item, slide) {
+  if (!item.image) return 'split no-media';
+  const layout = item.layout || slide.layout;
+  return layout === 'wide-image' ? 'split wide' : 'split';
+}
+
 async function renderResearch(slide) {
   const item = nextItem('research', current(state.content?.research));
   if (!item) return frame(slide, el('div', 'empty', 'No research highlights yet.'), slide.credit);
 
-  const split = el('div', 'split' + (item.image ? '' : ' no-media'));
+  const split = el('div', splitClass(item, slide));
   const card = el('div', 'card main');
   if (item.tag) card.append(el('div', 'tag', item.tag));
   card.append(el('h2', 'lede', clean(item.title)));
