@@ -157,7 +157,7 @@ img{display:block}
 
 /* "wide-image" layout: picture ~60%, text ~40%. The narrower column needs smaller
    type, or a long title would wrap to one word per line. */
-.split.wide{grid-template-columns:minmax(0,7fr) minmax(0,3fr)}
+.split.wide{grid-template-columns:minmax(0,4fr) minmax(0,6fr)}
 .split.wide .lede{font-size:calc(var(--h1)*0.6)}
 .split.wide .prose{font-size:calc(var(--body)*0.9); -webkit-line-clamp:12}
 
