@@ -80,6 +80,19 @@
     },
 	  {
       "tag": "Publication",
+      "title": "The Hidden (Critical) Minerals in Our Waste, and the Math to Get Them Out",
+      "people": "Luca",
+      "blurb": "Lithium, rare earths, and other critical minerals are hiding in places we usually think of as waste, from old mine sites to battery-recycling wastewater, to seawater. Getting them out is the hard part. A new study led by RASEI Fellow Oana Luca, offers a starting point. The results point to a surprising control dial: how concentrated the water is.",
+      "journal": "J. Phys. Chem. B",
+	  "pubyear":"2026",
+	  "pubcite":"ASAP",
+	  "image": "images/2026_11_Luca_Thumb.png",
+	  "layout": "wide-image",
+	  "imageBg": "black",
+      "until": "2027-01-18"
+    },
+	  {
+      "tag": "Publication",
       "title": "Could a $200K bond for satellites paid before launch prevent a space junk disaster in orbit? Here's why some scientists think so",
       "people": "Kaffine",
       "blurb": "The space around Earth is turning into a junkyard. Researchers think a refundable deposit scheme could force satellite operators to clean up their act before a tipping point is reached.",
