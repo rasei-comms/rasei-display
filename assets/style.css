@@ -154,6 +154,11 @@ img{display:block}
 }
 .split{display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,1fr); gap:var(--pad); width:100%; min-height:0}
 .split.no-media{grid-template-columns:minmax(0,1fr)}
+/* "wide-image" layout: picture ~70%, text ~30%. The narrower column needs smaller
+   type, or a long title would wrap to one word per line. */
+.split.wide{grid-template-columns:minmax(0,3fr) minmax(0,7fr)}
+.split.wide .lede{font-size:calc(var(--h1)*0.6)}
+.split.wide .prose{font-size:calc(var(--body)*0.9); -webkit-line-clamp:12}
 /* Without a picture the card is full width; cap the measure so lines stay readable. */
 .split.no-media .prose{max-width:78ch}
 .split.no-media .lede{max-width:26ch}
@@ -227,6 +232,6 @@ img{display:block}
 
 /* Portrait screens: stack the two-column layouts. */
 @media (max-aspect-ratio: 1/1){
-  .wx, .split{grid-template-columns:minmax(0,1fr); grid-template-rows:auto minmax(0,1fr)}
+  .wx, .split, .split.wide{grid-template-columns:minmax(0,1fr); grid-template-rows:auto minmax(0,1fr)}
 }id-template-rows:auto minmax(0,1fr)}
 }
